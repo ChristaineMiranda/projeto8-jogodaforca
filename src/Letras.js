@@ -12,9 +12,10 @@ export default function Letras(props) {
 
 
 function Alternativa(props){
+    
 
     return(
-        <button type="button" className="letra" disabled={props.botaoLetras}>
+        <button type="button" className={`letra ${(props.botao)? "": "clicavel"}`} disabled={props.botaoLetras}>
             {props.item}
         </button>
     )
