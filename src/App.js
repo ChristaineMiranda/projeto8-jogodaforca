@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import Jogo from './Jogo'
+import Letras from './Letras';
+import palavras from './palavras';
+import Chute from './Chute';
 
 function App() {
+  //Todas as variáveis de estado!
+  const [desabilitado, setDesabilitado] = React.useState(true)
+ 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <Jogo opcao = {palavras} botoes={desabilitado} habilitarBotoes={setDesabilitado}/>
+      <Letras botaoLetras={desabilitado} />
+      <Chute botaoChute={desabilitado} inputChute ={desabilitado}/>
+    </>
+
+  )
 }
 
 export default App;
