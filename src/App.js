@@ -7,12 +7,44 @@ import Chute from './Chute';
 function App() {
   //Todas as variáveis de estado!
   const [desabilitado, setDesabilitado] = React.useState(true)
- 
+  const [desabilitadoLetra, setDesabilitadoLetra] = React.useState(true)
+  const [palavraSorteadaArray, setPalavraSorteadaArray] = React.useState([])
+  const [exibidoNaTela, setExibidoNaTela] = React.useState([])
+  const [imagemForca, setImagemForca] = React.useState("assets/forca0.png")
+  const [letrasSelecionadas, setLetrasSelecionadas] = React.useState([])
+  const [clicavel, setClicavel] = React.useState("")
+
+
   return (
     <>
-      <Jogo opcao = {palavras} botoes={desabilitado} habilitarBotoes={setDesabilitado}/>
-      <Letras botaoLetras={desabilitado} />
-      <Chute botaoChute={desabilitado} inputChute ={desabilitado}/>
+      <Jogo
+        opcao={palavras}
+        botao={desabilitado}
+        setHabilitarBotao={setDesabilitado}
+        palavraSorteadaArray={palavraSorteadaArray}
+        setPalavraSorteadaArray={setPalavraSorteadaArray}
+        exibidoNaTela={exibidoNaTela}
+        setExibidoNaTela={setExibidoNaTela}
+        imagemForca={imagemForca}
+        setImagemForca={setImagemForca}
+        setBotaoLetras={setDesabilitadoLetra}
+        setLetrasSelecionadas = {setLetrasSelecionadas}
+        clicavel = {clicavel}
+        setClicavel = {setClicavel}
+
+      />
+
+      <Letras
+        clicavel = {clicavel}
+        setClicavel = {setClicavel}
+        botaoLetras={desabilitadoLetra}
+        setBotaoLetras={setDesabilitadoLetra}
+        selecionadas={letrasSelecionadas}
+        setSelecionadas={setLetrasSelecionadas}
+        palavraSorteadaArray={palavraSorteadaArray}
+
+      />
+      <Chute botaoChute={desabilitado} inputChute={desabilitado} />
     </>
 
   )
