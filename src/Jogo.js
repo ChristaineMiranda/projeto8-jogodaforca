@@ -12,9 +12,13 @@ export default function Jogo(props) {
         sorteada = opcao[indice] //palavra contida no índice do array sorteado, será a da partida!
         const novoArray = Array.from(sorteada) //transforma a string sorteada em array
         setPalavraSorteadaArray(novoArray)
-
-        let caracteres = novoArray.length
+        const exibirVazio = []
+        for(let i=0; i<novoArray.length; i++){
+            exibirVazio.push(" _ ")
+        }
+        setExibidoNaTela(exibirVazio)
         console.log(novoArray)
+        
 
 
 
@@ -43,16 +47,16 @@ export default function Jogo(props) {
 }
 
 function Pontilhado(props) {
-
+//<div className="pontilhado">
+// {props.palavra.map((item) => <span>___  </span>)}
+// </div>
     return (
         <>
             <div className="pontilhado">
-                <span> {props.sendoExibido} </span>
+                {props.sendoExibido.map((conteudo)=> (<span> {conteudo} </span>))} 
             </div>
 
-            <div className="pontilhado">
-                {props.palavra.map((item) => <span>___  </span>)}
-            </div>
+            
         </>
 
     )

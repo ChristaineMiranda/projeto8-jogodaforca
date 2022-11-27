@@ -37,28 +37,31 @@ function Alternativa(props) {
         const novoSelecionadas = [...selecionadas, letra]
         setSelecionadas(novoSelecionadas)
         if (palavraSorteadaArray.includes(letra)) letraCerta(letra)         
-            
-            // letraCerta(letra, atualizaJogada)
-        //verificar se tem na palavra
-        //se tiver, mostrar na posição que ela está
-
+        else letraErrada()
     }
     
     function letraCerta(letra) {
         const atualizaJogada = [...exibidoNaTela]
+        console.log("exibido na tela",exibidoNaTela)
+        console.log("Antes do for", atualizaJogada)
         
         for (let i = 0; i <palavraSorteadaArray.length; i++) {
         
               if (palavraSorteadaArray[i] === letra) {
-                 atualizaJogada[i]=letra
-                 
+                 atualizaJogada[i] = letra                 
             }
-        else{ atualizaJogada[i] = "___"}
-        
-
+        else{
+            if(atualizaJogada[i] != " _ ") {}
+            else{ atualizaJogada[i] = " _ " } 
         }
-         console.log("zpox",atualizaJogada)
+        }
          setExibidoNaTela(atualizaJogada)
+    }
+
+    function letraErrada(){
+        //incrementa contador de erros
+        //troca imagem da forca
+
     }
 
     return (
