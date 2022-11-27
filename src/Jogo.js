@@ -1,7 +1,17 @@
 
 export default function Jogo(props) {
     //rodar função que escolhe a palavra do array props.opcao
-    const { setClicavel, setLetrasSelecionadas, setHabilitarBotao, setBotaoLetras, opcao, setPalavraSorteadaArray, palavraSorteadaArray, exibidoNaTela, setExibidoNaTela, imagemForca, setImagemForca } = props
+    const { setClicavel,
+         setLetrasSelecionadas,
+          setHabilitarBotao,
+           setBotaoLetras, 
+           opcao, 
+           setPalavraSorteadaArray, 
+           palavraSorteadaArray, 
+           exibidoNaTela, 
+           setExibidoNaTela, 
+           imagemForca, 
+           erros} = props
 
     function sortearPalavra() {
         let sorteada //
@@ -18,6 +28,7 @@ export default function Jogo(props) {
         }
         setExibidoNaTela(exibirVazio)
         console.log(novoArray)
+       
         
 
 
@@ -41,18 +52,17 @@ export default function Jogo(props) {
         <>
             <img src={imagemForca} className="forca" />
             <button type="button" className="escolher-palavra" onClick={inicioDeJogo} >Escolher palavra</button>
-            <Pontilhado sendoExibido={exibidoNaTela} palavra={palavraSorteadaArray} /> {/* só deve ser exibido depois do clique em escolher palavra */}
+            <Pontilhado sendoExibido={exibidoNaTela} erros = {erros} /> {/* só deve ser exibido depois do clique em escolher palavra */}
         </>
     )
 }
 
 function Pontilhado(props) {
-//<div className="pontilhado">
-// {props.palavra.map((item) => <span>___  </span>)}
-// </div>
+    const {erros} = props
+
     return (
         <>
-            <div className="pontilhado">
+            <div className= {`pontilhado ${erros == 6 ? "vermelho": ""}`}>
                 {props.sendoExibido.map((conteudo)=> (<span> {conteudo} </span>))} 
             </div>
 

@@ -1,6 +1,21 @@
 export default function Letras(props) {
     const alfabeto = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-    const {exibidoNaTela, setExibidoNaTela, clicavel, botaoLetras, setBotaoLetras, selecionadas, setSelecionadas, palavraSorteadaArray, setPalavraSorteadaArray } = props
+    const {
+        exibidoNaTela,
+        setExibidoNaTela,
+        clicavel,
+        setClicavel,
+        botaoLetras,
+        setBotaoLetras,
+        selecionadas,
+        setSelecionadas,
+        palavraSorteadaArray,
+        setPalavraSorteadaArray,
+        erros,
+        setErros,
+        imagemForca,
+        setImagemForca
+    } = props
 
 
 
@@ -16,9 +31,14 @@ export default function Letras(props) {
                     setSelecionadas={setSelecionadas}
                     palavraSorteadaArray={palavraSorteadaArray}
                     clicavel={clicavel}
+                    setClicavel={setClicavel}
                     exibidoNaTela={exibidoNaTela}
                     setExibidoNaTela={setExibidoNaTela}
-                    setPalavraSorteadaArray = {setPalavraSorteadaArray}
+                    setPalavraSorteadaArray={setPalavraSorteadaArray}
+                    setErros={setErros}
+                    erros={erros}
+                    imagemForca={imagemForca}
+                    setImagemForca={setImagemForca}
                 />)}
 
             </div>
@@ -29,39 +49,59 @@ export default function Letras(props) {
 
 function Alternativa(props) {
 
-    const { exibidoNaTela, setExibidoNaTela, clicavel, botaoLetras, item, setBotaoLetras, selecionadas, setSelecionadas, palavraSorteadaArray, setPalavraSorteadaArray } = props
-       
+    const { exibidoNaTela,
+        setExibidoNaTela,
+        clicavel,
+        setClicavel,
+        botaoLetras,
+        item,
+        setBotaoLetras,
+        selecionadas,
+        setSelecionadas,
+        palavraSorteadaArray,
+        setPalavraSorteadaArray,
+        setErros,
+        erros,
+        imagemForca,
+        setImagemForca
+    } = props
+
 
 
     function clicaLetra(letra) {
         const novoSelecionadas = [...selecionadas, letra]
         setSelecionadas(novoSelecionadas)
-        if (palavraSorteadaArray.includes(letra)) letraCerta(letra)         
+        if (palavraSorteadaArray.includes(letra)) letraCerta(letra)
         else letraErrada()
     }
-    
+
     function letraCerta(letra) {
         const atualizaJogada = [...exibidoNaTela]
-        console.log("exibido na tela",exibidoNaTela)
-        console.log("Antes do for", atualizaJogada)
-        
-        for (let i = 0; i <palavraSorteadaArray.length; i++) {
-        
-              if (palavraSorteadaArray[i] === letra) {
-                 atualizaJogada[i] = letra                 
+        for (let i = 0; i < palavraSorteadaArray.length; i++) {
+
+            if (palavraSorteadaArray[i] === letra) {
+                atualizaJogada[i] = letra
             }
-        else{
-            if(atualizaJogada[i] != " _ ") {}
-            else{ atualizaJogada[i] = " _ " } 
+            // else {
+            //     if (atualizaJogada[i] != " _ ") { }
+            //     else { atualizaJogada[i] = " _ " }
+            // }
         }
-        }
-         setExibidoNaTela(atualizaJogada)
+        setExibidoNaTela(atualizaJogada)
     }
 
-    function letraErrada(){
-        //incrementa contador de erros
-        //troca imagem da forca
+    function letraErrada() {
+        let contador = erros
+        contador = contador + 1
+        setErros(contador)
+        setImagemForca(`assets/forca${contador}.png`)
+        if (contador == 6) finalizar()
+    }
 
+    function finalizar() {
+        setExibidoNaTela(palavraSorteadaArray)
+        setBotaoLetras(true)
+        setClicavel("")
     }
 
     return (

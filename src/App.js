@@ -13,7 +13,8 @@ function App() {
   const [imagemForca, setImagemForca] = React.useState("assets/forca0.png")
   const [letrasSelecionadas, setLetrasSelecionadas] = React.useState([])
   const [clicavel, setClicavel] = React.useState("")
-
+  const [erros, setErros] = React.useState(0)
+  
 
   return (
     <>
@@ -31,6 +32,7 @@ function App() {
         setLetrasSelecionadas = {setLetrasSelecionadas}
         clicavel = {clicavel}
         setClicavel = {setClicavel}
+        erros = {erros}
 
       />
 
@@ -45,7 +47,10 @@ function App() {
         setPalavraSorteadaArray = {setPalavraSorteadaArray}
         exibidoNaTela = {exibidoNaTela}
         setExibidoNaTela = {setExibidoNaTela}
-
+        setErros = {setErros}
+        erros = {erros}
+        imagemForca={imagemForca}
+        setImagemForca={setImagemForca}
       />
       <Chute botaoChute={desabilitado} inputChute={desabilitado} />
     </>
