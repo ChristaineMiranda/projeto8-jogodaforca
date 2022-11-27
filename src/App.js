@@ -14,6 +14,8 @@ function App() {
   const [letrasSelecionadas, setLetrasSelecionadas] = React.useState([])
   const [clicavel, setClicavel] = React.useState("")
   const [erros, setErros] = React.useState(0)
+  const [cor, setCor] =  React.useState("")
+  const [fimDeJogo, setFimDeJogo] = React.useState(false)
   
 
   return (
@@ -32,7 +34,8 @@ function App() {
         setLetrasSelecionadas = {setLetrasSelecionadas}
         clicavel = {clicavel}
         setClicavel = {setClicavel}
-        erros = {erros}
+        cor = {cor}
+        fimDeJogo = {fimDeJogo}
 
       />
 
@@ -51,6 +54,8 @@ function App() {
         erros = {erros}
         imagemForca={imagemForca}
         setImagemForca={setImagemForca}
+        setCor = {setCor}
+        setFimDeJogo = {setFimDeJogo}
       />
       <Chute botaoChute={desabilitado} inputChute={desabilitado} />
     </>

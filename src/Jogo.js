@@ -11,7 +11,9 @@ export default function Jogo(props) {
            exibidoNaTela, 
            setExibidoNaTela, 
            imagemForca, 
-           erros} = props
+           cor,
+           fimDeJogo
+        } = props
 
     function sortearPalavra() {
         let sorteada //
@@ -52,17 +54,17 @@ export default function Jogo(props) {
         <>
             <img src={imagemForca} className="forca" />
             <button type="button" className="escolher-palavra" onClick={inicioDeJogo} >Escolher palavra</button>
-            <Pontilhado sendoExibido={exibidoNaTela} erros = {erros} /> {/* só deve ser exibido depois do clique em escolher palavra */}
+            <Pontilhado sendoExibido={exibidoNaTela} cor ={cor} fim = {fimDeJogo}/> {/* só deve ser exibido depois do clique em escolher palavra */}
         </>
     )
 }
 
 function Pontilhado(props) {
-    const {erros} = props
+    const {cor, fim} = props
 
     return (
         <>
-            <div className= {`pontilhado ${erros == 6 ? "vermelho": ""}`}>
+            <div className= {`pontilhado ${fim ? cor : ""}`}>
                 {props.sendoExibido.map((conteudo)=> (<span> {conteudo} </span>))} 
             </div>
 

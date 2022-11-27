@@ -14,7 +14,9 @@ export default function Letras(props) {
         erros,
         setErros,
         imagemForca,
-        setImagemForca
+        setImagemForca,
+        setCor,
+        setFimDeJogo
     } = props
 
 
@@ -39,6 +41,8 @@ export default function Letras(props) {
                     erros={erros}
                     imagemForca={imagemForca}
                     setImagemForca={setImagemForca}
+                    setCor={setCor}
+                    setFimDeJogo={setFimDeJogo}
                 />)}
 
             </div>
@@ -63,7 +67,9 @@ function Alternativa(props) {
         setErros,
         erros,
         imagemForca,
-        setImagemForca
+        setImagemForca,
+        setCor,
+        setFimDeJogo
     } = props
 
 
@@ -77,17 +83,18 @@ function Alternativa(props) {
 
     function letraCerta(letra) {
         const atualizaJogada = [...exibidoNaTela]
-        for (let i = 0; i < palavraSorteadaArray.length; i++) {
 
+        for (let i = 0; i < palavraSorteadaArray.length; i++) {
             if (palavraSorteadaArray[i] === letra) {
                 atualizaJogada[i] = letra
             }
-            // else {
-            //     if (atualizaJogada[i] != " _ ") { }
-            //     else { atualizaJogada[i] = " _ " }
-            // }
         }
         setExibidoNaTela(atualizaJogada)
+        if (atualizaJogada.toString() == palavraSorteadaArray.toString()) {
+            finalizar()
+            setCor("verde")
+        }
+
     }
 
     function letraErrada() {
@@ -95,13 +102,17 @@ function Alternativa(props) {
         contador = contador + 1
         setErros(contador)
         setImagemForca(`assets/forca${contador}.png`)
-        if (contador == 6) finalizar()
+        if (contador == 6) {
+            finalizar()
+            setCor("vermelho")
+        }
     }
 
     function finalizar() {
         setExibidoNaTela(palavraSorteadaArray)
         setBotaoLetras(true)
         setClicavel("")
+        setFimDeJogo(true)
     }
 
     return (
