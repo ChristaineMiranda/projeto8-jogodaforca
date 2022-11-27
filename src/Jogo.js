@@ -1,9 +1,9 @@
 
 export default function Jogo(props) {
     //rodar função que escolhe a palavra do array props.opcao
-    const {setClicavel, setLetrasSelecionadas, setHabilitarBotao, setBotaoLetras,opcao, setPalavraSorteadaArray, palavraSorteadaArray, exibidoNaTela, setExibidoNaTela, imagemForca, setImagemForca} = props
+    const { setClicavel, setLetrasSelecionadas, setHabilitarBotao, setBotaoLetras, opcao, setPalavraSorteadaArray, palavraSorteadaArray, exibidoNaTela, setExibidoNaTela, imagemForca, setImagemForca } = props
 
-    function sortearPalavra(){
+    function sortearPalavra() {
         let sorteada //
         //let sorteadaArrays = []
         let quantidadeDePalavras = opcao.length  //obtenho o tamanho do array   
@@ -16,8 +16,8 @@ export default function Jogo(props) {
         let caracteres = novoArray.length
         console.log(novoArray)
 
-    
-        
+
+
     }
 
     function inicioDeJogo() {
@@ -27,26 +27,33 @@ export default function Jogo(props) {
         setBotaoLetras(false)
         sortearPalavra()
         setClicavel("clicavel")
-        
-        
+
+
     }
- 
+
 
 
     return (
         <>
             <img src={imagemForca} className="forca" />
             <button type="button" className="escolher-palavra" onClick={inicioDeJogo} >Escolher palavra</button>
-            <Pontilhado sendoExibido={exibidoNaTela} palavra={palavraSorteadaArray}/> {/* só deve ser exibido depois do clique em escolher palavra */}
+            <Pontilhado sendoExibido={exibidoNaTela} palavra={palavraSorteadaArray} /> {/* só deve ser exibido depois do clique em escolher palavra */}
         </>
     )
 }
 
-function Pontilhado(props){   
+function Pontilhado(props) {
 
-    return(
-        <div className="pontilhado">
-            {props.palavra.map((item)=> <span>___  </span>)}           
-        </div> 
+    return (
+        <>
+            <div className="pontilhado">
+                <span> {props.sendoExibido} </span>
+            </div>
+
+            <div className="pontilhado">
+                {props.palavra.map((item) => <span>___  </span>)}
+            </div>
+        </>
+
     )
 }

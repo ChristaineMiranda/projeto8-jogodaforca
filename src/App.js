@@ -42,6 +42,9 @@ function App() {
         selecionadas={letrasSelecionadas}
         setSelecionadas={setLetrasSelecionadas}
         palavraSorteadaArray={palavraSorteadaArray}
+        setPalavraSorteadaArray = {setPalavraSorteadaArray}
+        exibidoNaTela = {exibidoNaTela}
+        setExibidoNaTela = {setExibidoNaTela}
 
       />
       <Chute botaoChute={desabilitado} inputChute={desabilitado} />
