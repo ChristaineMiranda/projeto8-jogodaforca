@@ -17,6 +17,7 @@ function App() {
   const [cor, setCor] = React.useState("")
   const [fimDeJogo, setFimDeJogo] = React.useState(false)
   const [palavraChute, setPalavraChute] = React.useState("")
+  const [dataTeste, setDataTeste] = React.useState("")
 
 
   return (
@@ -41,7 +42,8 @@ function App() {
         fimDeJogo={fimDeJogo}
         setFimDeJogo = {setFimDeJogo}
         setPalavraChute = {setPalavraChute}
-
+dataTeste = {dataTeste}
+setDataTeste = {setDataTeste}
       />
 
       <Letras

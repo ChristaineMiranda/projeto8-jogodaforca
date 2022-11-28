@@ -111,7 +111,7 @@ function Alternativa(props) {
     }
 
     return (
-        <button type="button" className={`letra ${selecionadas.includes(item) ? "" : clicavel}`} onClick={() => clicaLetra(item)} disabled={selecionadas.includes(item) ? true : botaoLetras}>
+        <button type="button" className={`letra ${selecionadas.includes(item) ? "" : clicavel}`} onClick={() => clicaLetra(item)} data-test="letter" disabled={selecionadas.includes(item) ? true : botaoLetras}>
             {item}
         </button>
     )

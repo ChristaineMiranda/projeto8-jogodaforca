@@ -10,7 +10,7 @@ export default function Chute(props) {
         setFimDeJogo,
         setCor,
         setImagemForca
-     } = props
+    } = props
 
     function chutar() {
         setExibidoNaTela(palavraSorteadaArray)
@@ -19,23 +19,21 @@ export default function Chute(props) {
         setFimDeJogo(true)
         const chuteEmArray = Array.from(palavraChute)
         const comparaChute = chuteEmArray.toString()
-        const comparaSorteada= palavraSorteadaArray.toString() 
-       if(comparaChute === comparaSorteada){
-        setCor("verde")
-       }
-       else{
-        setCor("vermelho")
-        setImagemForca("assets/forca6.png")
-       }
-       
-        
-     
+        const comparaSorteada = palavraSorteadaArray.toString()
+        if (comparaChute === comparaSorteada) {
+            setCor("verde")
+        }
+        else {
+            setCor("vermelho")
+            setImagemForca("assets/forca6.png")
+        }
     }
+
     return (
         <div className="chute">
             <span>Já sei a palavra!</span>
-            <input value={palavraChute} onChange={(event) => (setPalavraChute(event.target.value))} type="text" className="caixadigitacao" disabled={inputChute} />
-            <button className="dar-chute" disabled={botaoChute} onClick={chutar} >Chutar</button>
+            <input value={palavraChute} data-test="guess-input" onChange={(event) => (setPalavraChute(event.target.value))} type="text" className="caixadigitacao" disabled={inputChute} />
+            <button className="dar-chute" disabled={botaoChute} onClick={chutar} data-test="guess-button" >Chutar</button>
         </div>
 
     )

@@ -17,7 +17,9 @@ export default function Jogo(props) {
         setCor,
         setErros,
         setPalavraChute,
-        setImagemForca
+        setImagemForca,
+        dataTeste,
+        setDataTeste
     } = props
 
     function sortearPalavra() {
@@ -34,6 +36,7 @@ export default function Jogo(props) {
             exibirVazio.push(" _ ")
         }
         setExibidoNaTela(exibirVazio)
+        setDataTeste(sorteada)
 
     }
     function escolherPalavra() {
@@ -70,19 +73,20 @@ export default function Jogo(props) {
 
     return (
         <>
-            <img src={imagemForca} className="forca" />
-            <button type="button" className="escolher-palavra" onClick={escolherPalavra} >Escolher palavra</button>
-            <Pontilhado sendoExibido={exibidoNaTela} cor={cor} fim={fimDeJogo} /> {/* só deve ser exibido depois do clique em escolher palavra */}
+            <img src={imagemForca} className="forca" data-test="game-image"/>
+            <button type="button" className="escolher-palavra" onClick={escolherPalavra} data-test="choose-word" >Escolher palavra</button>
+            <Pontilhado sendoExibido={exibidoNaTela} cor={cor} fim={fimDeJogo} dataTeste={dataTeste}/> {/* só deve ser exibido depois do clique em escolher palavra */}
         </>
     )
 }
 
 function Pontilhado(props) {
-    const { cor, fim } = props
+    const { cor, fim, dataTeste} = props
+
 
     return (
         <>
-            <div className={`pontilhado ${fim ? cor : ""}`}>
+            <div className={`pontilhado ${fim ? cor : ""}`} data-test="word" data-answer={dataTeste}>
                 {props.sendoExibido.map((conteudo) => (<span> {conteudo} </span>))}
             </div>
         </>
