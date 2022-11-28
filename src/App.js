@@ -14,9 +14,10 @@ function App() {
   const [letrasSelecionadas, setLetrasSelecionadas] = React.useState([])
   const [clicavel, setClicavel] = React.useState("")
   const [erros, setErros] = React.useState(0)
-  const [cor, setCor] =  React.useState("")
+  const [cor, setCor] = React.useState("")
   const [fimDeJogo, setFimDeJogo] = React.useState(false)
-  
+  const [palavraChute, setPalavraChute] = React.useState("")
+
 
   return (
     <>
@@ -31,33 +32,47 @@ function App() {
         imagemForca={imagemForca}
         setImagemForca={setImagemForca}
         setBotaoLetras={setDesabilitadoLetra}
-        setLetrasSelecionadas = {setLetrasSelecionadas}
-        clicavel = {clicavel}
-        setClicavel = {setClicavel}
-        cor = {cor}
-        fimDeJogo = {fimDeJogo}
+        setLetrasSelecionadas={setLetrasSelecionadas}
+        clicavel={clicavel}
+        setClicavel={setClicavel}
+        cor={cor}
+        setCor = {setCor}
+        setErros = {setErros}
+        fimDeJogo={fimDeJogo}
+        setFimDeJogo = {setFimDeJogo}
+        setPalavraChute = {setPalavraChute}
 
       />
 
       <Letras
-        clicavel = {clicavel}
-        setClicavel = {setClicavel}
+        clicavel={clicavel}
+        setClicavel={setClicavel}
         botaoLetras={desabilitadoLetra}
         setBotaoLetras={setDesabilitadoLetra}
         selecionadas={letrasSelecionadas}
         setSelecionadas={setLetrasSelecionadas}
         palavraSorteadaArray={palavraSorteadaArray}
-        setPalavraSorteadaArray = {setPalavraSorteadaArray}
-        exibidoNaTela = {exibidoNaTela}
-        setExibidoNaTela = {setExibidoNaTela}
-        setErros = {setErros}
-        erros = {erros}
-        imagemForca={imagemForca}
+        exibidoNaTela={exibidoNaTela}
+        setExibidoNaTela={setExibidoNaTela}
+        setErros={setErros}
+        erros={erros}
         setImagemForca={setImagemForca}
-        setCor = {setCor}
-        setFimDeJogo = {setFimDeJogo}
+        setCor={setCor}
+        setFimDeJogo={setFimDeJogo}
       />
-      <Chute botaoChute={desabilitado} inputChute={desabilitado} />
+      <Chute
+        botaoChute={desabilitado}
+        inputChute={desabilitado}
+        palavraChute={palavraChute}
+        setPalavraChute={setPalavraChute}
+        palavraSorteadaArray={palavraSorteadaArray}
+        setExibidoNaTela={setExibidoNaTela}
+        setBotaoLetras={setDesabilitadoLetra}
+        setClicavel={setClicavel}
+        setFimDeJogo={setFimDeJogo}
+        setCor = {setCor}
+        setImagemForca = {setImagemForca}
+      />
     </>
 
   )

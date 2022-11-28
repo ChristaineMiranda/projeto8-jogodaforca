@@ -1,3 +1,5 @@
+
+
 export default function Letras(props) {
     const alfabeto = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
     const {
@@ -10,10 +12,8 @@ export default function Letras(props) {
         selecionadas,
         setSelecionadas,
         palavraSorteadaArray,
-        setPalavraSorteadaArray,
         erros,
         setErros,
-        imagemForca,
         setImagemForca,
         setCor,
         setFimDeJogo
@@ -36,10 +36,8 @@ export default function Letras(props) {
                     setClicavel={setClicavel}
                     exibidoNaTela={exibidoNaTela}
                     setExibidoNaTela={setExibidoNaTela}
-                    setPalavraSorteadaArray={setPalavraSorteadaArray}
                     setErros={setErros}
                     erros={erros}
-                    imagemForca={imagemForca}
                     setImagemForca={setImagemForca}
                     setCor={setCor}
                     setFimDeJogo={setFimDeJogo}
@@ -63,10 +61,8 @@ function Alternativa(props) {
         selecionadas,
         setSelecionadas,
         palavraSorteadaArray,
-        setPalavraSorteadaArray,
         setErros,
         erros,
-        imagemForca,
         setImagemForca,
         setCor,
         setFimDeJogo
@@ -94,7 +90,6 @@ function Alternativa(props) {
             finalizar()
             setCor("verde")
         }
-
     }
 
     function letraErrada() {
